@@ -1,18 +1,27 @@
-#this algorithm takes an input array and a value and return the index of
-#the element number that matches the value, or returns NULL if that
-#value is not present in the array.
+#Python program for performing a Linear Search
 
+#Function to find index of value v in arrray A. 
+#Returns None if v is not found.
+#Limitation: looks through every element and returns the index of last 
+#element that contains value v.
+def LinearSearch_1(arr, v):
+    match = None
+    for i in range(0,len(arr)): #iterate through every element of arr
+        if arr[i]==v:#check if current element is equal to v
+            match = i+1
+    
+    return match
+
+
+
+
+#Driver code to test above
 A = [5,2,4,6,1,3]
 v = 5
-
-match = None #the match variable holds NULL or the index of val if it is present in A
-for i in range(0,len(A)): #iterate through every element of A
-    if A[i] == v:#check if current element is equal to v
-        match = i+1
-    
+result = LinearSearch_1(A,v)
 
 
-if match == None:
+if result== None:
     print("No match found.")
-else: 
-    print("Match found at index: "+str(match))
+elif result != None:
+    print("Match found at index: "+str(result))
