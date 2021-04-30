@@ -12,14 +12,10 @@ def LinearSearch_1(arr, v):
     
     return match
 
-
-
-
 #Driver code to test above
 A = [5,2,4,6,1,3]
 v = 5
 result = LinearSearch_1(A,v)
-
 
 if result== None:
     print("No match found.")
