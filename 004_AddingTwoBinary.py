@@ -1,6 +1,5 @@
 #Python program for performing addition of two binary numbers
 
-
 #Function to perform addition of two binary numbers.
 #Input: two n-element arrays containing 1'a and 0's. These arrays are named 
 #A and B.
@@ -42,6 +41,3 @@ result = AddBinary(A,B)
 
 #Print the result.
 print(result)
-
-
-
