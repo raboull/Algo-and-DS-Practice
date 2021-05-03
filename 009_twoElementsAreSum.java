@@ -12,6 +12,7 @@ class TwoElementsAreSum {
     //Output:
     //      1 - if there exists two integers in A whose sum is exactly x.
     //      0 - if there does not exist two integers in A whose sum is exactly x.
+    //Runtime of this approach is 2nLog(2n)
     int twoElementsAreSum(int A[], int x){
         //initialize an empty array B with the same length as A
         int[] B = new int[A.length];
@@ -34,6 +35,51 @@ class TwoElementsAreSum {
 
         //sort the elements in C using mergeSort
         mergeSort(C, 0, C.length-1);
+
+        //Check if the same value appears in consecutive positions in the sorted merged set C.
+        for (int i = 0; i<C.length; i++){
+            if(i+1<C.length && C[i]==C[i+1])
+                return 1;
+        }
+        return 0;
+    }
+
+    //This functions determines whether or not there exists two elements in A whose sum is exactly x.
+    //Input:
+    //      A - array of integers.
+    //      x - integer.
+    //Output:
+    //      1 - if there exists two integers in A whose sum is exactly x.
+    //      0 - if there does not exist two integers in A whose sum is exactly x.
+    //Runtime of this approach is nLog(n)
+    int twoElementsAreSum_1(int A[], int x){
+        //sort the elements in A using merge sort
+        mergeSort(A,0,A.length-1);
+
+        //initialize an empty array B with the same length as A
+        int[] B = new int[A.length];
+
+        //form the set B, where each element is sum-A[i]
+        for (int i=0; i<A.length; i++)
+            B[i] = x-A[i];
+
+        //sort the elements in B using merge sort
+        mergeSort(B, 0, B.length-1);
+
+        //merge sets A and B into set C
+        int[] C = new int[A.length+B.length];
+        int k = 0; //initialize a counter that will iterate through array C
+        for(int j=0; j<A.length; j++){//first copy the elements from array A
+            C[k] = A[j];
+            k++;
+        }
+        for(int j=0; j<B.length; j++){//now copy the elemets from array B into remaining elements of C
+            C[k] = B[j];
+            k++;
+        }
+
+        //merge the sorted elements of A and B into sorted set C
+        merge(C,0,A.length-1,C.length-1);
 
         //Check if the same value appears in consecutive positions in the sorted merged set C.
         for (int i = 0; i<C.length; i++){
@@ -131,7 +177,7 @@ class TwoElementsAreSum {
         TwoElementsAreSum object = new TwoElementsAreSum();//instantiate an instance of our class
 
         //Test the twoElementsAreSum function
-        int result = object.twoElementsAreSum(testArray, 11);
+        int result = object.twoElementsAreSum_1(testArray, 13);
         System.out.println("Is sum element present? Boolean answer: "+ result);
     }    
 }
