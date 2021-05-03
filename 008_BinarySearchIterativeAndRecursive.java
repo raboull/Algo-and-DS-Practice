@@ -48,14 +48,6 @@ class BinarySearchIterativeAndRecursive
             return binarySearchRecursive(A, v, low, mid-1);
     }
 
-    /* A utility function to print array of size n*/
-    static void printArray(int A[])
-    {
-        for (int i = 0; i < A.length; ++i)
-            System.out.print(A[i] + " ");
-        System.out.println();
-    }
-
     // Driver method
     public static void main(String args[])
     {
