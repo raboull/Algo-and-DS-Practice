@@ -28,3 +28,4 @@ class HornersPolynomialEvaluation
         System.out.println(object.naivePolynomialEvaluation(TestArray, x));
     }    
 }
+
