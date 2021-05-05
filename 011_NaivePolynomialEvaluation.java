@@ -1,4 +1,4 @@
-//Java program that implements the Bubblesort algorithm
+//Java program that implements the Naive Polynomial Evaluation algorithm
 
 class NaivePolynomialEvaluation
 {
